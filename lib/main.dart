@@ -1,4 +1,5 @@
 import 'package:boilerplate/models/user.dart';
+import 'package:boilerplate/views/home.dart';
 import 'package:flutter/material.dart';
 import 'views/signin/signin.dart';
 //import 'views/signin/verificationCode.dart';
@@ -22,7 +23,7 @@ class _AppState extends State<App>{
     if(this.widget.user == null){
       screen = SignIn(verificationComplete: (User user) => {setState(()=>{this.widget.user = user})});
     } else {
-      screen = Center(child: Text(this.widget.user.userID));
+      screen = Home(logout: () => {setState(() => {this.widget.user = null})});
     }
 
 
